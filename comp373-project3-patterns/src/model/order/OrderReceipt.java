@@ -25,7 +25,7 @@ public class OrderReceipt implements IOrderReceipt {
 		this.visitCollection(orderE.getPurchasedClothing());
 		//After collection is visited, update & print the total
 		orderE.setOrderTotal(this.totalPrice);
-		System.out.println("Order total:\t\t\t$" + orderE.getOrderTotal());
+		System.out.println("\nOrder total:\t\t$" + orderE.getOrderTotal());
 	}
 	
 	// Collection collection = orderE.getPurchasedClothing();
@@ -41,7 +41,7 @@ public class OrderReceipt implements IOrderReceipt {
 	
 	// Visit the Shirt element & print its attributes
 	public void visitShirt(Shirt shirtE) {
-		System.out.println("\nProduct #"+shirtE.getProductNumber()+"\t\t\t$"+shirtE.getPrice());
+		System.out.println("\nProduct #"+shirtE.getProductNumber()+"\t$"+shirtE.getPrice());
 		System.out.println("Product type: Shirt");
 		System.out.println("Size: "+shirtE.getSize());
 		System.out.println("Color: "+shirtE.getColor());
@@ -54,7 +54,7 @@ public class OrderReceipt implements IOrderReceipt {
 	
 	// Visit the Pants element & print its attributes
 	public void visitPants(Pants pantsE) {
-		System.out.println("\nProduct #"+pantsE.getProductNumber()+"\t\t\t$"+pantsE.getPrice());
+		System.out.println("\nProduct #"+pantsE.getProductNumber()+"\t$"+pantsE.getPrice());
 		System.out.println("Product type: Pants");
 		System.out.println("Size: "+pantsE.getSize());
 		System.out.println("Color: "+pantsE.getColor());

@@ -3,6 +3,7 @@ package model.order;
 import java.util.List;
 
 import model.clothing.Clothing;
+import model.customer.ICustomer;
 
 /*
  * Interface used to visit all Elements associated with Order
@@ -16,6 +17,7 @@ public interface IOrder {
 	public List<Clothing> getPurchasedClothing();
 	public float getOrderTotal();
 	public String getOrderStatus();
+	public ICustomer getCustomer();
 	
 	public void setOrderTotal(float total);
 	
@@ -29,4 +31,8 @@ public interface IOrder {
 	public void placeOrder();
 	public void shipOrder();
 	public void deliverOrder();
+	
+	//Subject to an Observer
+	public void attach(Notifier observer);
+	public void detach(Notifier observer);
 }

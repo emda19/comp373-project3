@@ -14,8 +14,10 @@ import model.customer.IAddress;
 import model.customer.ICustomer;
 import model.order.IOrder;
 import model.order.IOrderReceipt;
+import model.order.Notifier;
 import model.order.Order;
 import model.order.OrderReceipt;
+import model.order.OrderStatusNotifier;
 
 public class RetailClient {
 	
@@ -39,7 +41,7 @@ public class RetailClient {
 		Clothing pants2 = new Pants("24624531", (float) 49.99, 33, "Black Denim Wash", "Long", new Mens());
 	
 		// Create an Order
-		IOrder order = new Order("0004217", new ArrayList<>());
+		IOrder order = new Order("0004217", new ArrayList<>(), customer);
 		order.addClothing(shirt1);
 		order.addClothing(shirt2);
 		order.addClothing(pants1);
@@ -51,11 +53,15 @@ public class RetailClient {
 		// Print out an Order Summary with Visitor Pattern
 		IOrderReceipt visitor = new OrderReceipt();
 		visitor.visitOrder((Order) order); //Print order details
-		visitor.visitCollection(order.getPurchasedClothing()); //Print item details
 		
+		System.out.println("\n*****************************************************************");
 		//Observer pattern to notify customers of an updated order status
-		//order.placeOrder();
-		//order.shipOrder();
-		//order.deliverOrder();
+		new OrderStatusNotifier(order); //create the observer object
+		System.out.println("\n(system places order)");
+		order.placeOrder();
+		System.out.println("\n(system ships order)");
+		order.shipOrder();
+		System.out.println("\n(system delivers order)");
+		order.deliverOrder();
 	}
 }
