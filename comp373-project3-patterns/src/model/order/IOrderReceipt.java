@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import model.clothing.Pants;
 import model.clothing.Shirt;
+import model.customer.Address;
+import model.customer.Customer;
 
 /*
  * Interface for Concrete Visitor OrderReceipt

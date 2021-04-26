@@ -8,7 +8,7 @@ import model.order.IOrder;
  * Class to hold all customer information
  */
 
-public class Customer {
+public class Customer implements ICustomer {
 	
 	private String firstName;
 	private String lastName;
@@ -30,7 +30,8 @@ public class Customer {
 		this.orderHistory.add(order);
 	}
 	
-	// Setters for instance variables
+	// Not necessary
+	/* Setters for instance variables
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -46,6 +47,7 @@ public class Customer {
 	public void setOrderHistory(List<IOrder> orderHistory) {
 		this.orderHistory = orderHistory;
 	}
+	*/
 	
 	// Getters for instance variables
 	

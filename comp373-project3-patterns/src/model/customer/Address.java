@@ -2,7 +2,7 @@ package model.customer;
 
 /* This class is used to format an address in Customer */
 
-public class Address {
+public class Address implements IAddress {
 
 	private String street;
 	private String city;

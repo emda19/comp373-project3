@@ -6,6 +6,8 @@ import java.util.Iterator;
 import model.clothing.Clothing;
 import model.clothing.Pants;
 import model.clothing.Shirt;
+import model.customer.Address;
+import model.customer.Customer;
 
 /*
  * This class acts as a Visitor in order to print out an order summary
@@ -13,11 +15,17 @@ import model.clothing.Shirt;
 
 public class OrderReceipt implements IOrderReceipt {
 
+	private float totalPrice;
+	
 	// Visit the Order element & print its attributes
 	public void visitOrder(Order orderE) {
 		System.out.println("Order number: "+orderE.getOrderNumber());
-		System.out.println("Total Cost: $"+orderE.getOrderTotal());
+		//System.out.println("Total Cost: $"+orderE.getOrderTotal());
 		System.out.println("Order status: "+orderE.getOrderStatus());
+		this.visitCollection(orderE.getPurchasedClothing());
+		//After collection is visited, update & print the total
+		orderE.setOrderTotal(this.totalPrice);
+		System.out.println("Order total:\t\t\t$" + orderE.getOrderTotal());
 	}
 	
 	// Collection collection = orderE.getPurchasedClothing();
@@ -38,6 +46,10 @@ public class OrderReceipt implements IOrderReceipt {
 		System.out.println("Size: "+shirtE.getSize());
 		System.out.println("Color: "+shirtE.getColor());
 		System.out.println("Sleeve Length: "+shirtE.getSleeveLength());
+		//Bridge pattern, print department
+		shirtE.find();
+		//Calculate total price of order for summary
+		this.totalPrice += shirtE.getPrice();
 	}
 	
 	// Visit the Pants element & print its attributes
@@ -47,5 +59,10 @@ public class OrderReceipt implements IOrderReceipt {
 		System.out.println("Size: "+pantsE.getSize());
 		System.out.println("Color: "+pantsE.getColor());
 		System.out.println("Sleeve Length: "+pantsE.getPantLength());
+		//Bridge pattern, print department
+		pantsE.find();
+		//Calculate total price of order for summary
+		this.totalPrice += pantsE.getPrice();
 	}
+	
 }

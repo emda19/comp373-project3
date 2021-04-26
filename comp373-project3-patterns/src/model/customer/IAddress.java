@@ -15,4 +15,5 @@ public interface IAddress {
 	public String getCity();
 	public String getState();
 	public String getZipcode();
+	
 }
