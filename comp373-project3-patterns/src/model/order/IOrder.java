@@ -1,5 +1,5 @@
 package model.order;
 
-public class IOrder {
+public interface IOrder {
 
 }
