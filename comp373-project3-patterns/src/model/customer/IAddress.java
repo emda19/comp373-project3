@@ -1,6 +1,6 @@
 package model.customer;
 
-/* Interface to be used by Customer in order to depend on an abstraction instead of the concrete class Address */
+/* Interface to be referenced by Customer in order to depend on an abstraction instead of the concrete class Address */
 
 public interface IAddress {
 

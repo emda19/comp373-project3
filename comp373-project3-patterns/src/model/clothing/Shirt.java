@@ -1,5 +1,7 @@
 package model.clothing;
 
+import model.order.IOrderReceipt;
+
 /*
  * Shirt is a subclass to Clothing, representing one category of Clothing
 */
@@ -65,9 +67,13 @@ public class Shirt extends Clothing {
 	}
 	
 	// Defining superclass method to call correct Department Methods for this implementation
-	
 	public void find() {
-		department.findShirt(productNumber, price, size, color, sleeveLength);
+		department.findShirt();
+	}
+	
+	// Accept IOrderReceipt visitor
+	public void accept(IOrderReceipt visitor) {
+		visitor.visitShirt(this);
 	}
 	
 }

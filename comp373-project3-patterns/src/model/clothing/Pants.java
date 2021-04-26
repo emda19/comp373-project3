@@ -1,5 +1,7 @@
 package model.clothing;
 
+import model.order.IOrderReceipt;
+
 /*
  * Pants is a subclass of Clothing, representing one category of Clothing
  */
@@ -65,9 +67,13 @@ public class Pants extends Clothing {
 	}
 	
 	// Defining superclass method to call correct Department Methods for this implementation
-	
 	public void find() {
-		department.findPants(productNumber, price, size, color, pantLength);
+		department.findPants();
+	}
+	
+	// Defining superclass method for accepting a visitor
+	public void accept(IOrderReceipt visitor) {
+		visitor.visitPants(this);
 	}
 	
 }
