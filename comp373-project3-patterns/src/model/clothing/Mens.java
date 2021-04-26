@@ -3,7 +3,7 @@ package model.clothing;
 public class Mens implements Department {
 
 	@Override
-	public void findShirt(String productNumber, float price, int size, String color, String sleeveLength) {
+	public void findShirt(String productNumber, float price, String size, String color, String sleeveLength) {
 		System.out.println("Shirt Location: Men's Department");
 	}
 

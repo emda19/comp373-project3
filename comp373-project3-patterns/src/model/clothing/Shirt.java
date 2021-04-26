@@ -8,12 +8,12 @@ public class Shirt extends Clothing {
 
 	private String productNumber;
 	private float price;
-	private int size; //Size key: 0=XS, 1=S, 2=M, 3=L, 4=XL
+	private String size; //Size key: XS, S, M, L, XL
 	private String color;
 	private String sleeveLength; //Sleeve length key: none, short, mid-length, long
 	
 	// Non-default constructor
-	public Shirt(String productNumber, float price, int size, String color, String sleeveLength, Department department) {
+	public Shirt(String productNumber, float price, String size, String color, String sleeveLength, Department department) {
 		super(department); //Access the Department interface through Clothing constructor
 		this.productNumber = productNumber;
 		this.price = price;
@@ -40,11 +40,11 @@ public class Shirt extends Clothing {
 		return this.price;
 	}
 	
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 	
-	public int getSize() {
+	public String getSize() {
 		return this.size;
 	}
 	
