@@ -1,6 +1,6 @@
 package model.customer;
 
-import java.util.List;
+import java.util.Collection;
 
 import model.order.IOrder;
 
@@ -15,10 +15,10 @@ public class Customer implements ICustomer {
 	private String lastName;
 	private String email;
 	private IAddress shippingAddress;
-	private List<IOrder> orderHistory;
+	private Collection<IOrder> orderHistory;
 	
 	//Non-default constructor to fill in customer information (like a sign up process for the site)
-	public Customer(String firstName, String lastName, String email, IAddress shippingAddress, List<IOrder> orderHistory) {
+	public Customer(String firstName, String lastName, String email, IAddress shippingAddress, Collection<IOrder> orderHistory) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -43,7 +43,7 @@ public class Customer implements ICustomer {
 	public IAddress getShippingAddress() {
 		return this.shippingAddress;
 	}
-	public List<IOrder> getOrderHistory() {
+	public Collection<IOrder> getOrderHistory() {
 		return this.orderHistory;
 	}
 }
